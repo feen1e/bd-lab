@@ -26,6 +26,12 @@ LEFT JOIN hr.employees e ON d.department_id = e.department_id
 GROUP BY d.department_name
 HAVING COUNT(e.employee_id) = 0;
 
+--4 alternatywnie
+SELECT d.department_name
+FROM hr.departments d
+LEFT JOIN hr.employees e ON d.department_id = e.department_id
+WHERE e.department_id IS NULL;
+
 --5 
 SELECT e.first_name || ' ' || e.last_name AS Pracownik, m.first_name || ' ' || m.last_name AS Przełożony
 FROM hr.employees e, hr.employees m
